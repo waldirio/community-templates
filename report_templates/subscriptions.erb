@@ -24,7 +24,7 @@ require:
         'Account number': pool.account_number,
         'Start date': pool.start_date,
         'End date': pool.end_date,
-        'Organization': "org_label_here",
+        'Organization': pool.organization.name
       ) -%>
 <%- end -%>
 <%= report_render -%>
