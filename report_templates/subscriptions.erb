@@ -11,9 +11,9 @@ template_inputs:
 model: ReportTemplate
 require:
 - plugin: katello
-￼ version: 3.9.0
+￼ version: 3.16.0
 -%>
-<%- load_pools(search: input('Subscriptions filter'), includes: [:subscription, :products]).each_record do |pool| -%>
+<%- load_pools(search: input('Subscriptions filter'), includes: [:subscription, :products, :organization]).each_record do |pool| -%>
 <%-   report_row(
         'ID': pool.id,
         'Name': pool.name,
