@@ -11,7 +11,7 @@ template_inputs:
   hidden_value: false
 model: ReportTemplate
 -%>
-<%-  load_hosts(search: input('hosts')).each_record do |host| -%>
+<%-  load_hosts(search: input('hosts'), preload: [:installed_packages]).each_record do |host| -%>
 <%-    host.installed_packages.each do |pkg| -%>
 <%-   report_row(
         'Host': host.name,
