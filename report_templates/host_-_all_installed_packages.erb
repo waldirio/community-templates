@@ -10,15 +10,15 @@ template_inputs:
   resource_type: Katello::ActivationKey
   hidden_value: false
 model: ReportTemplate
-%>
-<%  load_hosts(search: input('hosts')).each_record do |host| -%>
-<%    host.installed_packages.each do |pkg| -%>
+-%>
+<%-  load_hosts(search: input('hosts')).each_record do |host| -%>
+<%-    host.installed_packages.each do |pkg| -%>
 <%-   report_row(
         'Host': host.name,
         'Package Name': pkg.name,
         'Package NVRA': pkg.nvra,
         'Package NVREA': pkg.nvrea
       )-%>
-<%    end -%>
-<%  end -%>
+<%-    end -%>
+<%-  end -%>
 <%= report_render -%>
